@@ -1,11 +1,4 @@
-function readFile(file){
-  let fs = require("fs");
-  let numbers = fs.readFileSync(file).toString("utf-8").replace(/(\r\n|\n|\r)/gm,"").split("");
-  for(let number in numbers){
-    numbers[number] = parseInt(numbers[number]);
-  }
-  return numbers;
-}
+const helper = require('../helper');
 
 function addIfNextSame(numbers){
   let sum = [];
@@ -35,6 +28,6 @@ function addIfOtherHalfSame(numbers){
   return sum.reduce((a, b) => a + b, 0);
 }
 
-let numbers = readFile("./numbers.txt");
+let numbers = helper.readFile("./numbers.txt");
 console.log("Result if next same: ", addIfNextSame(numbers));
 console.log("Result Other Half: ", addIfOtherHalfSame(numbers));
