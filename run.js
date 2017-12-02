@@ -12,8 +12,8 @@ switch(day){
   case 2:{
     const day2 = require('./Day2/solution');
     let numbers = helper.fileToArray("./Day2/input.txt");
-    console.log(day2.addArrayLines(numbers));
-    console.log(day2.evenArrayAdd(numbers));
+    console.log(day2.sumOfArrayLines(numbers));
+    console.log(day2.sumOfEvenArrayDiff(numbers));
     break;
   }
   case 3:{

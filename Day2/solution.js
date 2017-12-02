@@ -1,5 +1,5 @@
 module.exports = {
-  addArrayLines: function(numbers){
+  sumOfArrayLines: function(numbers){
     let diff = 0;
     for(let i = 0; i < numbers.length; ++i){
       diff += Math.max.apply(null, numbers[i]) - Math.min.apply(null, numbers[i]);
@@ -7,7 +7,7 @@ module.exports = {
     return diff;
   },
 
-  evenArrayAdd: function(numbers){
+  sumOfEvenArrayDiff: function(numbers){
     let diff = 0;
     for(let row = 0; row < numbers.length; ++row){
       for(let number= 0; number < numbers[row].length; ++number){
