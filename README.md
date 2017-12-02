@@ -1,25 +1,25 @@
 # AdventOfCode_2017
-Day 1 - Inverse Captcha (Javascript)\n
-Day 2 - (Javascript)\n
-Day 3 - (Javascript)\n
-Day 4 - (Javascript)\n
-Day 5 - (Javascript)\n
-Day 6 - (Javascript)\n
-Day 7 - (Javascript)\n
-Day 8 - (Javascript)\n
-Day 9 - (Javascript)\n
-Day 10 - (Javascript)\n
-Day 11 - (Javascript)\n
-Day 12 - (Javascript)\n
-Day 13 - (Javascript)\n
-Day 14 - (Javascript)\n
-Day 15 - (Javascript)\n
-Day 16 - (Javascript)\n
-Day 17 - (Javascript)\n
-Day 18 - (Javascript)\n
-Day 19 - (Javascript)\n
-Day 20 - (Javascript)\n
-Day 21 - (Javascript)\n
-Day 22 - (Javascript)\n
-Day 23 - (Javascript)\n
-Day 24 - (Javascript)\n
+Day 1 - Inverse Captcha (Javascript)<br />
+Day 2 - (Javascript)<br />
+Day 3 - (Javascript)<br />
+Day 4 - (Javascript)<br />
+Day 5 - (Javascript)<br />
+Day 6 - (Javascript)<br />
+Day 7 - (Javascript)<br />
+Day 8 - (Javascript)<br />
+Day 9 - (Javascript)<br />
+Day 10 - (Javascript)<br />
+Day 11 - (Javascript)<br />
+Day 12 - (Javascript)<br />
+Day 13 - (Javascript)<br />
+Day 14 - (Javascript)<br />
+Day 15 - (Javascript)<br />
+Day 16 - (Javascript)<br />
+Day 17 - (Javascript)<br />
+Day 18 - (Javascript)<br />
+Day 19 - (Javascript)<br />
+Day 20 - (Javascript)<br />
+Day 21 - (Javascript)<br />
+Day 22 - (Javascript)<br />
+Day 23 - (Javascript)<br />
+Day 24 - (Javascript)
