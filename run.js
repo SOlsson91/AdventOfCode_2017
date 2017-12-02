@@ -13,6 +13,7 @@ switch(day){
     const day2 = require('./Day2/solution');
     let numbers = helper.fileToArray("./Day2/input.txt");
     console.log(day2.addArrayLines(numbers));
+    console.log(day2.evenArrayAdd(numbers));
     break;
   }
   case 3:{
