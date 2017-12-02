@@ -4,13 +4,15 @@ let day = 2;
 switch(day){
   case 1:{
     const day1 = require('./Day1/solution');
-    let numbers = helper.readFile("./Day1/numbers.txt");
+    let numbers = helper.fileToString("./Day1/numbers.txt");
     console.log("Result if next same: ", day1.addIfNextSame(numbers));
     console.log("Result Other Half: ", day1.addIfOtherHalfSame(numbers));
     break;
   }
   case 2:{
     const day2 = require('./Day2/solution');
+    let numbers = helper.fileToArray("./Day2/input.txt");
+    console.log(day2.addArrayLines(numbers));
     break;
   }
   case 3:{
