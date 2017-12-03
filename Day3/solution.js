@@ -1,8 +1,24 @@
 module.exports = {
   createSpiralArray: function(searchedNumber){
-    let size = calculateSizeOfArray(searchedNumber);
     let spiral = [];
-
+    spiral.push([]);
+    let size = calculateSizeOfArray(searchedNumber);
+    let square = Math.sqrt(size);
+    let index = 0;
+    console.log(spiral);
+    while(index <= size){
+      spiral[size/2][size/2] = index;
+      ++index;
+      console.log(spiral);
+      break;
+    }
+    for(let i = 0; i < square; ++i){
+      let subSpiral = [];
+      for(let j = 0; j < square; ++j){
+        subSpiral.push(j);
+      }
+      spiral.push(subSpiral);
+    }
     console.log(spiral);
   }
 }
