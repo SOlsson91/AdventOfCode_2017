@@ -1,7 +1,7 @@
 # AdventOfCode_2017
 Day 1 - Inverse Captcha (Javascript)<br />
-Day 2 - (Javascript)<br />
-Day 3 - (Javascript)<br />
+Day 2 - Corruption Checksum (Javascript)<br />
+Day 3 - Spiral Memory (Javascript)<br />
 Day 4 - (Javascript)<br />
 Day 5 - (Javascript)<br />
 Day 6 - (Javascript)<br />
