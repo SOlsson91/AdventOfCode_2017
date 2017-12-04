@@ -18,7 +18,7 @@ module.exports = {
       words = words.map(x => {
         x = x.split("");
         x.sort();
-        return x.join();
+        return x.join("");
       });
       words.sort();
       for (var i = words.length - 1; i > 0; i--) {
