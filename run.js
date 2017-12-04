@@ -25,6 +25,7 @@ switch(day){
     const day4 = require('./Day4/solution');
     let rows = helper.fileToArray("./Day4/input.txt");
     console.log(day4.checkPassphrase(rows));
+    console.log(day4.checkPassphraseV2(rows));
     break;
   }
   case 5:{
