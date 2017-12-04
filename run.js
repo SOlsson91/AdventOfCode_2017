@@ -1,5 +1,5 @@
 const helper = require('./utils/helper');
-let day = 3;
+let day = 4;
 
 switch(day){
   case 1:{
@@ -22,6 +22,9 @@ switch(day){
     break;
   }
   case 4:{
+    const day4 = require('./Day4/solution');
+    let rows = helper.fileToArray("./Day4/input.txt");
+    console.log(day4.checkPassphrase(rows));
     break;
   }
   case 5:{

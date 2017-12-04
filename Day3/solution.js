@@ -7,8 +7,7 @@ module.exports = {
     let index = 0;
     console.log(spiral);
     while(index <= size){
-      spiral[size/2][size/2] = index;
-      ++index;
+      
       console.log(spiral);
       break;
     }
