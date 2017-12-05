@@ -16,5 +16,11 @@ module.exports = {
       numbers[i] = rows[i].split("\t");
     }
     return numbers;
+  },
+
+  fileToSimpleArray: function(file){
+      let fs = require("fs");
+      let row = fs.readFileSync(file).toString("utf-8").split("\n");
+      return row;
   }
 }
