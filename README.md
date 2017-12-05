@@ -2,7 +2,7 @@
 Day 1 - Inverse Captcha (Javascript)<br />
 Day 2 - Corruption Checksum (Javascript)<br />
 Day 3 - Spiral Memory (Javascript)<br />
-Day 4 - (Javascript)<br />
+Day 4 - High-Entropy Passphrases (Javascript)<br />
 Day 5 - (Javascript)<br />
 Day 6 - (Javascript)<br />
 Day 7 - (Javascript)<br />
