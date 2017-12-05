@@ -31,7 +31,9 @@ switch(day){
   case 5:{
     const day5 = require('./Day5/solution');
     let rows = helper.fileToSimpleArray("./Day5/input.txt");
-    console.log(day5.jumpstToEscape(rows));
+    console.log(day5.jumpsToEscape(rows));
+    rows = helper.fileToSimpleArray("./Day5/input.txt");
+    console.log(day5.jumpsToEscapeV2(rows));
 
     break;
   }
