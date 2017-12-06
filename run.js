@@ -1,5 +1,5 @@
 const helper = require('./utils/helper');
-let day = 5;
+let day = 6;
 
 switch(day){
   case 1:{
@@ -34,10 +34,12 @@ switch(day){
     console.log(day5.jumpsToEscape(rows));
     rows = helper.fileToSimpleArray("./Day5/input.txt");
     console.log(day5.jumpsToEscapeV2(rows));
-
     break;
   }
   case 6:{
+    const day6 = require('./Day6/solution');
+    let row = helper.fileToSimpleArray('./Day6/input.txt');
+    console.log(day6.memoryMove(row));
     break;
   }
   case 7:{
