@@ -1,5 +1,7 @@
+const helper = require('../utils/helper');
+
 module.exports = {
-  memoryMove: function(inputRow){
+  memoryMove: function(inputRow, showSizeOfLoops){
     let cycles = 0;
     let scenarios = []
     let a = inputRow[0].split("\t");
@@ -9,6 +11,7 @@ module.exports = {
     scenarios.push(a);
     let run = true;
     let j = 0;
+    let seenOnce = false;
     while(run){
       let row = scenarios[scenarios.length - 1].slice();
       let highestValue = 0;
@@ -27,7 +30,8 @@ module.exports = {
         index++;
       }
       for(let i = 0; i < scenarios.length; ++i){
-        if(arraysEqual(row, scenarios[i])){
+        if(helper.arraysEqual(row, scenarios[i]) && !seenOnce){
+          if(showSizeOfLoops){ console.log(scenarios.length - i) }
           run = false;
         }
       }
@@ -35,12 +39,4 @@ module.exports = {
     }
     return scenarios.length - 1;
   }
-}
-
-function arraysEqual(arr1, arr2){
-  if(arr1.length !== arr2.length){ return false; }
-  for(let i = arr1.length; i--;){
-    if(arr1[i] !== arr2[i]){ return false;}
-  }
-  return true;
 }

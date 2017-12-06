@@ -39,7 +39,8 @@ switch(day){
   case 6:{
     const day6 = require('./Day6/solution');
     let row = helper.fileToSimpleArray('./Day6/input.txt');
-    console.log(day6.memoryMove(row));
+    let showSizeOfLoops = true;
+    console.log(day6.memoryMove(row, showSizeOfLoops));
     break;
   }
   case 7:{
