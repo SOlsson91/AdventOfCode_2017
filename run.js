@@ -1,5 +1,5 @@
 const helper = require('./utils/helper');
-let day = 6;
+let day = 7;
 
 switch(day){
   case 1:{
@@ -44,6 +44,9 @@ switch(day){
     break;
   }
   case 7:{
+    const day7 = require('./Day7/solution');
+    let rows = helper.fileToSimpleArray('./Day7/test.txt');
+    console.log(day7.recursiveTower(rows));
     break;
   }
   case 8:{
