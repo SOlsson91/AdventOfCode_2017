@@ -3,8 +3,10 @@ module.exports = {
     let split = symbols.split("");
     let depth = 0;
     let total = 0;
+    let totalGarbage = 0;
     let cancel = false;
     let garbage = false;
+    let firstGarbage = true;
     for(let i = 0; i < split.length; ++i){
       if(cancel == true){
         cancel = false;
@@ -15,6 +17,7 @@ module.exports = {
         }
         if(split[i] == ">"){
           garbage = false;
+          firstGarbage = true;
         }
         if(split[i] == "!" && cancel == false){
           cancel = true;
@@ -29,9 +32,18 @@ module.exports = {
             depth -= 1;
           }
         }
+        else{
+          if(!cancel){
+            if(!firstGarbage){
+              totalGarbage += 1;
+            } else{
+              firstGarbage = false;
+            }
+          }
+        }
       }
     }
-    console.log(total);
-    //console.log(split);
+    console.log("Total Garbage:",totalGarbage);
+    return total;
   }
 }
