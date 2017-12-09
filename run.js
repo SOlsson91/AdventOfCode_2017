@@ -1,5 +1,5 @@
 const helper = require('./utils/helper');
-let day = 7;
+let day = 8;
 
 switch(day){
   case 1:{
@@ -50,6 +50,9 @@ switch(day){
     break;
   }
   case 8:{
+    const day8 = require('./Day8/solution');
+    let rows = helper.fileToSimpleArray('./Day8/test.txt');
+    console.log(day8.registers(rows));
     break;
   }
   case 9:{
