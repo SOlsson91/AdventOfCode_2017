@@ -57,7 +57,8 @@ switch(day){
   }
   case 9:{
     const day9 = require('./Day9/solution');
-    let rows =
+    let symbols = helper.fileToSimpleString('./Day9/input.txt');
+    console.log(day9.stringProcessing(symbols));
     break;
   }
   case 10:{

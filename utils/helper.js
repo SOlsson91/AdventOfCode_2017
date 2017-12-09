@@ -8,6 +8,12 @@ module.exports = {
     return numbers;
   },
 
+  fileToSimpleString: function(file){
+    let fs = require("fs");
+    let string = fs.readFileSync(file).toString("utf-8");
+    return string;
+  },
+
   fileToArray: function(file){
     let numbers = [];
     let fs = require("fs");
