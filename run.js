@@ -51,7 +51,7 @@ switch(day){
   }
   case 8:{
     const day8 = require('./Day8/solution');
-    let rows = helper.fileToSimpleArray('./Day8/test.txt');
+    let rows = helper.fileToSimpleArray('./Day8/input.txt');
     console.log(day8.registers(rows));
     break;
   }
