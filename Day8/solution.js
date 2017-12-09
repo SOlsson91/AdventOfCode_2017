@@ -2,15 +2,8 @@ module.exports = {
   registers: function(rows){
     let info = parseRows(rows);
     let objects = findValues(info);
-    let parsedRows = parseInfo(objects, info);
-
-    let largestNumber = 0;
-    for(let property in parsedRows){
-      if(parsedRows[property] > largestNumber){
-        largestNumber = parsedRows[property];
-      }
-    }
-    return largestNumber;
+    objects = parseInfo(objects, info);
+    return getLargestNumber(objects);
   }
 }
 
@@ -42,6 +35,7 @@ function findValues(info){
 }
 
 function parseInfo(objects, info){
+  let largestNumber = 0;
   for(let property in info){
     let add = info[property].math == "inc"? true : false;
     switch(info[property].operator){
@@ -88,6 +82,21 @@ function parseInfo(objects, info){
         break;
       }
     }
+    let number = getLargestNumber(objects);
+    if(number > largestNumber){
+      largestNumber = number;
+    }
   }
+  console.log(largestNumber);
   return objects;
+}
+
+function getLargestNumber(parsedRows){
+  let largestNumber = 0;
+  for(let property in parsedRows){
+    if(parsedRows[property] > largestNumber){
+      largestNumber = parsedRows[property];
+    }
+  }
+  return largestNumber;
 }
