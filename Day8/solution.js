@@ -41,43 +41,43 @@ function parseInfo(objects, info){
     switch(info[property].operator){
       case(">"):{
         if(objects[info[property].from] > info[property].value){
-          if(add){ objects[info[property].to] += parseInt(info[property].by); }
-          else{ objects[info[property].to] -= parseInt(info[property].by); }
+          if(add){ objects[info[property].to] += info[property].by; }
+          else{ objects[info[property].to] -= info[property].by; }
         }
         break;
       }
       case("<"):{
         if(objects[info[property].from] < info[property].value){
-          if(add){ objects[info[property].to] += parseInt(info[property].by); }
-          else{ objects[info[property].to] -= parseInt(info[property].by); }
+          if(add){ objects[info[property].to] += info[property].by; }
+          else{ objects[info[property].to] -= info[property].by; }
         }
         break;
       }
       case("=="):{
         if(objects[info[property].from] == info[property].value){
-          if(add){ objects[info[property].to] += parseInt(info[property].by); }
-          else{ objects[info[property].to] -= parseInt(info[property].by); }
+          if(add){ objects[info[property].to] += info[property].by; }
+          else{ objects[info[property].to] -= info[property].by; }
         }
         break;
       }
       case(">="):{
         if(objects[info[property].from] >= info[property].value){
-          if(add){ objects[info[property].to] += parseInt(info[property].by); }
-          else{ objects[info[property].to] -= parseInt(info[property].by); }
+          if(add){ objects[info[property].to] += info[property].by; }
+          else{ objects[info[property].to] -= info[property].by; }
         }
         break;
       }
       case("<="):{
         if(objects[info[property].from] <= info[property].value){
-          if(add){ objects[info[property].to] += parseInt(info[property].by); }
-          else{ objects[info[property].to] -= parseInt(info[property].by); }
+          if(add){ objects[info[property].to] += info[property].by; }
+          else{ objects[info[property].to] -= info[property].by; }
         }
         break;
       }
       case("!="):{
         if(objects[info[property].from] != info[property].value){
-          if(add){ objects[info[property].to] += parseInt(info[property].by); }
-          else{ objects[info[property].to] -= parseInt(info[property].by); }
+          if(add){ objects[info[property].to] += info[property].by; }
+          else{ objects[info[property].to] -= info[property].by; }
         }
         break;
       }
@@ -87,7 +87,7 @@ function parseInfo(objects, info){
       largestNumber = number;
     }
   }
-  console.log(largestNumber);
+  console.log("Largest number in total: ", largestNumber);
   return objects;
 }
 
