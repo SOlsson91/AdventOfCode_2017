@@ -23,7 +23,7 @@ module.exports = {
     for(let i = 0; i < ending.length; ++i){
       ascii.push(ending[i]);
     }
-    let sparseHash = this.knotHash(ascii,256 ,64);
+    let sparseHash = this.knotHash(ascii, 256, 64);
     let denseHash = sparseToDense(sparseHash);
     return denseToHex(denseHash);
   }
@@ -70,24 +70,6 @@ function createList(listLength){
     list.push(i);
   }
   return list;
-}
-
-function updateSymbol(symbols){
-  let updateSymbol = [];
-  let first = false;
-  number = "";
-  for(let i = 0; i < symbols.length; ++i){
-    if(symbols[i] != ','){
-      number += symbols[i];
-    } else {
-      let num = parseInt(number);
-      if(first){ updateSymbol.push(','); }
-      updateSymbol.push(num)
-      first = true;
-      number = "";
-    }
-  }
-  return updateSymbol;
 }
 
 function sparseToDense(sparse){
