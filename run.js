@@ -1,5 +1,5 @@
 const helper = require('./utils/helper');
-let day = 9;
+let day = 10;
 
 switch(day){
   case 1:{
@@ -58,10 +58,15 @@ switch(day){
   case 9:{
     const day9 = require('./Day9/solution');
     let symbols = helper.fileToSimpleString('./Day9/input.txt');
-    console.log("Score: ",day9.stringProcessing(symbols));
+    console.log("Score: ", day9.stringProcessing(symbols));
     break;
   }
   case 10:{
+    const day10 = require('./Day10/solution');
+    let numbers = helper.fileToSimpleArray('./Day10/input.txt');
+    numbers = numbers[0].split(",");
+    for(let i = 0; i < numbers.length; ++i){ numbers[i] = parseInt(numbers[i]); }
+    console.log("Score: ", day10.knotHash(numbers, 256));
     break;
   }
   case 11:{
