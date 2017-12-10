@@ -66,7 +66,7 @@ switch(day){
     let numbers = helper.fileToSimpleArray('./Day10/input.txt');
     numbers = numbers[0].split(",");
     for(let i = 0; i < numbers.length; ++i){ numbers[i] = parseInt(numbers[i]); }
-    console.log("Score: ", day10.knotHash(numbers, 256));
+    console.log("Multiplication of first two numbers: ", day10.knotHash(numbers, 256));
     break;
   }
   case 11:{
