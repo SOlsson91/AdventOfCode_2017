@@ -4,6 +4,7 @@ module.exports = {
     let skipSize = 0;
     let currentPosition = 0;
     for(let i = 0; i < rounds; ++i){
+      console.log(list);
       for(let j = 0; j < numbers.length; ++j){
         let slice = reverseSection(numbers[j], list, currentPosition);
         insertReversedSection(list, slice, currentPosition);
@@ -16,13 +17,11 @@ module.exports = {
 
   hashSymbol: function(symbols){
     let ascii = [];
-    for(let i = 0; i < symbols.length; ++i){
-      ascii.push(symbols.toString().charCodeAt(i));
-    }
     let ending = [17, 31, 73, 47, 23];
-    for(let i = 0; i < ending.length; ++i){
-      ascii.push(ending[i]);
-    }
+
+    for(let i = 0; i < symbols.length; ++i){ ascii.push(symbols[i].toString().charCodeAt(0)); }
+    for(let i = 0; i < ending.length; ++i){ ascii.push(ending[i]); }
+
     let sparseHash = this.knotHash(ascii, 256, 64);
     let denseHash = sparseToDense(sparseHash);
     return denseToHex(denseHash);
