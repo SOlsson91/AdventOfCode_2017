@@ -4,7 +4,6 @@ module.exports = {
     let skipSize = 0;
     let currentPosition = 0;
     for(let i = 0; i < rounds; ++i){
-      console.log(list);
       for(let j = 0; j < numbers.length; ++j){
         let slice = reverseSection(numbers[j], list, currentPosition);
         insertReversedSection(list, slice, currentPosition);
@@ -15,14 +14,11 @@ module.exports = {
     return list;
   },
 
-  hashSymbol: function(symbols){
+  hashSymbol: function(symbols, listLength, rounds){
     let ascii = [];
-    let ending = [17, 31, 73, 47, 23];
-
     for(let i = 0; i < symbols.length; ++i){ ascii.push(symbols[i].toString().charCodeAt(0)); }
-    for(let i = 0; i < ending.length; ++i){ ascii.push(ending[i]); }
-
-    let sparseHash = this.knotHash(ascii, 256, 64);
+    ascii = ascii.concat(17, 31, 73, 47, 23);
+    let sparseHash = this.knotHash(ascii, listLength, rounds);
     let denseHash = sparseToDense(sparseHash);
     return denseToHex(denseHash);
   }
@@ -31,10 +27,8 @@ module.exports = {
 function reverseSection(number, list, currentPosition){
   let slice = [];
   if(currentPosition + number > list.length){
-    let firstNum = list.length - currentPosition;
-    let secNum = number - firstNum;
-    slice = list.slice(currentPosition, currentPosition + firstNum);
-    slice = slice.concat(list.slice(0, secNum));
+    slice = list.slice(currentPosition, currentPosition + list.length);
+    slice = slice.concat(list.slice(0, number - (list.length - currentPosition)));
   } else {
     slice = list.slice(currentPosition, currentPosition + number);
   }
@@ -77,7 +71,7 @@ function sparseToDense(sparse){
   for(let i = 0; i < sparse.length; ++i){
     numbers.push(sparse[i]);
     if((i + 1) % 16 == 0){
-      dense.push(numbers[0]^numbers[2]^numbers[3]^numbers[4]^numbers[5]^
+      dense.push(numbers[0]^numbers[1]^numbers[2]^numbers[3]^numbers[4]^
                 numbers[5]^numbers[6]^numbers[7]^numbers[8]^numbers[9]^
                 numbers[10]^numbers[11]^numbers[12]^numbers[13]^numbers[14]^numbers[15]);
       numbers = [];
