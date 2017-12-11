@@ -1,99 +1,48 @@
 module.exports = {
-  knotHash: function(numbers, listLength, rounds){
-    let list = createList(listLength);
-    let skipSize = 0;
-    let currentPosition = 0;
-    for(let i = 0; i < rounds; ++i){
-      console.log(list);
-      for(let j = 0; j < numbers.length; ++j){
-        let slice = reverseSection(numbers[j], list, currentPosition);
-        insertReversedSection(list, slice, currentPosition);
-        currentPosition = updateCurrentPosition(list, skipSize, currentPosition, numbers[j]);
-        skipSize++;
+  knotHash: function(input, rounds = 1){
+    let list = [...Array(256).keys()];
+    let skip = 0,
+        currentPos = 0;
+
+    for(let round = 0; round < rounds; ++round){
+      for(let i = 0; i < input.length; ++i){
+        let slice = list.slice(currentPos, currentPos + input[i]);
+        let pos = slice.length;
+
+        if((currentPos + input[i] + 1) > list.length){
+          slice.push(...list.slice(0, (currentPos + input[i]) - list.length));
+        }
+        slice.reverse();
+
+        list.splice(currentPos, input[i], ...slice.splice(0, pos));
+        list.splice(0, slice.length, ...slice);
+
+        currentPos = (currentPos + (input[i] + skip++)) % list.length;
       }
     }
     return list;
   },
 
-  hashSymbol: function(symbols){
-    let ascii = [];
-    let ending = [17, 31, 73, 47, 23];
+  hashs: function(input){
+    let ROUNDS = 64;
+    let ascii = [...input].map(n => String(n).charCodeAt(0));
+    ascii.push(17, 31, 73, 47, 23);
 
-    for(let i = 0; i < symbols.length; ++i){ ascii.push(symbols[i].toString().charCodeAt(0)); }
-    for(let i = 0; i < ending.length; ++i){ ascii.push(ending[i]); }
-
-    let sparseHash = this.knotHash(ascii, 256, 64);
+    let sparseHash = this.knotHash(ascii, ROUNDS);
     let denseHash = sparseToDense(sparseHash);
     return denseToHex(denseHash);
   }
 }
 
-function reverseSection(number, list, currentPosition){
-  let slice = [];
-  if(currentPosition + number > list.length){
-    let firstNum = list.length - currentPosition;
-    let secNum = number - firstNum;
-    slice = list.slice(currentPosition, currentPosition + firstNum);
-    slice = slice.concat(list.slice(0, secNum));
-  } else {
-    slice = list.slice(currentPosition, currentPosition + number);
-  }
-  return slice.reverse();
-}
-
-function insertReversedSection(list, slice, currentPosition){
-  let fromStart = 0;
-  for(let j = 0; j < slice.length; ++j){
-    if((currentPosition + j) >= list.length){
-      list.splice((fromStart), 1, slice[j]);
-      fromStart += 1;
-    } else {
-      list.splice((currentPosition + j), 1, slice[j]);
-    }
-  }
-}
-
-function updateCurrentPosition(list, skipSize, currentPosition, number){
-  if((currentPosition + number + skipSize) > list.length){
-    let diff = (currentPosition + number + skipSize) - list.length;
-    currentPosition = diff;
-  } else {
-    currentPosition = currentPosition + number + skipSize;
-  }
-  return currentPosition;
-}
-
-function createList(listLength){
-  let list = [];
-  for(let i = 0; i < listLength; ++i){
-    list.push(i);
-  }
-  return list;
-}
-
 function sparseToDense(sparse){
   let dense = [];
   let numbers = [];
-  for(let i = 0; i < sparse.length; ++i){
-    numbers.push(sparse[i]);
-    if((i + 1) % 16 == 0){
-      dense.push(numbers[0]^numbers[2]^numbers[3]^numbers[4]^numbers[5]^
-                numbers[5]^numbers[6]^numbers[7]^numbers[8]^numbers[9]^
-                numbers[10]^numbers[11]^numbers[12]^numbers[13]^numbers[14]^numbers[15]);
-      numbers = [];
-    }
+  for(let i = 0; i < sparse.length; i += 16){
+    dense.push(sparse.slice(i, i + 16).reduce((a, b) => a^b));
   }
   return dense;
 }
 
 function denseToHex(dense){
-  let hexString = "";
-  for(let i = 0; i < dense.length; ++i){
-    let hex = dense[i].toString(16);
-    if(hex.length < 2){
-      hex = "0" + hex;
-    }
-    hexString += hex;
-  }
-  return hexString;
+  return (dense.map(x => ("0" + x.toString(16)).substr(-2)).join(""));
 }
