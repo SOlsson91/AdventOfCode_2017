@@ -75,6 +75,7 @@ switch(day){
     break;
   }
   case 11:{
+    const day11 = require('./Day11/solution');
     break;
   }
   case 12:{
