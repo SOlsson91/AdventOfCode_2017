@@ -65,23 +65,12 @@ switch(day){
     const day10 = require('./Day10/solution');
 
     let numbers = helper.fileToSimpleArray('./Day10/input.txt');
-<<<<<<< HEAD
     numbers = numbers[0].split(",").map(n => +n);
     let list = day10.knotHash(numbers);
     console.log("Multiplication of first two numbers: ", list[0] * list[1]);
 
     let input = helper.fileToSimpleString('./Day10/input.txt');
     console.log("Hash:", day10.hashs(input));
-=======
-    numbers = numbers[0].split(",");
-    for(let i = 0; i < numbers.length; ++i){ numbers[i] = parseInt(numbers[i]); }
-    let list = day10.knotHash(numbers, 256, 1);
-    console.log("Multiplication of first two numbers: ", list[0] * list[1]);
-
-    let symbols = helper.fileToSimpleString('./Day10/test.txt');
-    symbols = symbols.split("");
-    console.log("Hash:", day10.hashSymbol(symbols, 256, 64));
->>>>>>> 288fc7b6ba1f45e464256439d6211fd89e22b46b
     break;
   }
   case 11:{
