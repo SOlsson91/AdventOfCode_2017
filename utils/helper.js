@@ -26,7 +26,7 @@ module.exports = {
 
   fileToSimpleArray: function(file){
       let fs = require("fs");
-      let row = fs.readFileSync(file).toString("utf-8").split("\n");
+      let row = fs.readFileSync(file, "utf-8").split("\n");
       return row;
   },
 
