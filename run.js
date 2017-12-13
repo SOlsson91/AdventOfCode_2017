@@ -1,5 +1,5 @@
 const helper = require('./utils/helper');
-let day = 10;
+let day = 3;
 
 switch(day){
   case 1:{
@@ -18,7 +18,7 @@ switch(day){
   }
   case 3:{
     const day3 = require('./Day3/solution');
-    day3.createSpiralArray(23);
+    day3.calculateStepsToNumber(23);
     break;
   }
   case 4:{
