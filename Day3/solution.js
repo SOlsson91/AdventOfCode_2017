@@ -1,7 +1,8 @@
 module.exports = {
   calculateStepsToNumber: function(input){
     let spiral = createSpiralArray(input);
-    console.log(spiral);
+    let result = calculateStepsFromMiddle(spiral, input);
+    return (Math.abs(result[0]) + Math.abs(result[1]));
   }
 }
 
@@ -87,5 +88,30 @@ function createSpiralArray(searchedNumber){
       runs++;
     }
   }
+  return result;
+}
+
+function calculateStepsFromMiddle(spiral, input){
+  let middle = [];
+  let numLocation = [];
+  for(let y = 0; y < spiral.length; ++y){
+    for(let x = 0; x < spiral[y].length; ++x){
+      if(spiral[y][x] == 1){
+        middle.push(x);
+        middle.push(y);
+      }
+      if(spiral[y][x] == input){
+        numLocation.push(x);
+        numLocation.push(y);
+      }
+    }
+  }
+  return ArrayDiff(numLocation,middle);
+}
+
+function ArrayDiff(a1,a2){
+  let result = [];
+  result.push(a1[0]-a2[0]);
+  result.push(a1[1]-a2[1]);
   return result;
 }

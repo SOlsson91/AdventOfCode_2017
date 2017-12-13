@@ -18,7 +18,7 @@ switch(day){
   }
   case 3:{
     const day3 = require('./Day3/solution');
-    day3.calculateStepsToNumber(23);
+    console.log(day3.calculateStepsToNumber(368078));
     break;
   }
   case 4:{
