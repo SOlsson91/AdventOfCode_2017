@@ -1,7 +1,9 @@
 module.exports = {
   calculateStepsToNumber: function(input){
     let spiral = createSpiralArray(input);
-    let result = calculateStepsFromMiddle(spiral, input);
+    let result = calculateStepsFromMiddle(spiral[0], input);
+    let seq = getValuesSquare(spiral, input);
+    console.log(seq);
     return (Math.abs(result[0]) + Math.abs(result[1]));
   }
 }
@@ -59,16 +61,19 @@ function createSpiralArray(searchedNumber){
   let locX = arraySide;
   let locY = arraySide - 1;
   let runs = 0;
+  let memory = [];
   for(let i = 0; i < spiral.length; ++i){
     if(i % 2 == 0){
       if(runs % 2 == 1){
         for(let item = 0; item < spiral[i].length; ++item){
           locX++;
+          memory.push([locY, locX]);
           result[locY][locX] = spiral[i][item];
         }
       } else {
         for(let item = 0; item < spiral[i].length; ++item){
           locX--;
+          memory.push([locY, locX]);
           result[locY][locX] = spiral[i][item];
         }
       }
@@ -77,18 +82,20 @@ function createSpiralArray(searchedNumber){
       if(runs % 2 == 1){
         for(let item = 0; item < spiral[i].length; ++item){
           locY++;
+          memory.push([locY, locX]);
           result[locY][locX] = spiral[i][item];
         }
       } else {
         for(let item = 0; item < spiral[i].length; ++item){
           locY--;
+          memory.push([locY, locX]);
           result[locY][locX] = spiral[i][item];
         }
       }
       runs++;
     }
   }
-  return result;
+  return [result, memory];
 }
 
 function calculateStepsFromMiddle(spiral, input){
@@ -114,4 +121,40 @@ function ArrayDiff(a1,a2){
   result.push(a1[0]-a2[0]);
   result.push(a1[1]-a2[1]);
   return result;
+}
+
+function getValuesSquare(spiral, input){
+  let result = 0;
+  let valueSquare = Array.matrix(spiral[0].length + 2, spiral[0].length + 2, 0);
+  valueSquare[spiral[1][spiral[1].length -1][0]][spiral[1][spiral[1].length -1][1]] = 1;
+  for(let i = spiral[1].length - 1; i >= 0; --i){
+    let x = spiral[1][i][0];
+    let y = spiral[1][i][1];
+    valueSquare[x][y] = sumValues(x,y, valueSquare);
+    if(valueSquare[x][y] > input){
+        result = valueSquare[x][y];
+        break;
+    }
+  }
+  return result;
+}
+
+function sumValues(x,y,spiral){
+  let sum = 0;
+  if(x != 0 && y != 0){
+    sum += parseInt(spiral[x - 1][y - 1]);
+    sum += parseInt(spiral[x-1][y]);
+    sum += parseInt(spiral[x - 1][y + 1]);
+    sum += parseInt(spiral[x + 1][y - 1]);
+    sum += parseInt(spiral[x][y - 1]);
+  }
+  sum += parseInt(spiral[x + 1][y]);
+  sum += parseInt(spiral[x + 1][y + 1]);
+  sum += parseInt(spiral[x][y]);
+  sum += parseInt(spiral[x][y + 1]);
+  return sum;
+}
+
+function valueInArray(currentValue, index, arr, value){
+  return arr[index] == value;
 }
