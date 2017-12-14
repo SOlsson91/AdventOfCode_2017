@@ -1,5 +1,5 @@
 const helper = require('./utils/helper');
-let day = 3;
+let day = 7;
 
 switch(day){
   case 1:{
@@ -45,8 +45,9 @@ switch(day){
   }
   case 7:{
     const day7 = require('./Day7/solution');
-    let rows = helper.fileToSimpleArray('./Day7/test.txt');
+    let rows = helper.fileToSimpleString('./Day7/input.txt');
     console.log(day7.recursiveTower(rows));
+    console.log(day7.balanceWeight(rows));
     break;
   }
   case 8:{
