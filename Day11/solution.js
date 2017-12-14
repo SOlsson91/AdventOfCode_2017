@@ -2,13 +2,18 @@
 module.exports = {
   hexPath: function(input){
     let values = [0,0,0];
+    let maxDist = 0;
     input.split(",").forEach(v => {
       let vec = valueToPath(v);
       values[0] += Number(vec[0]);
       values[1] += Number(vec[1]);
       values[2] += Number(vec[2]);
+      let dist = Math.max(...values.map(Math.abs));
+      if(dist > maxDist){
+        maxDist = dist;
+      }
     });
-    return Math.max(...values.map(Math.abs));
+    return [Math.max(...values.map(Math.abs)), maxDist];
   }
 }
 
