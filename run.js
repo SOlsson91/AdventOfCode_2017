@@ -1,5 +1,5 @@
 const helper = require('./utils/helper');
-let day = 7;
+let day = 11;
 
 switch(day){
   case 1:{
@@ -76,6 +76,7 @@ switch(day){
   }
   case 11:{
     const day11 = require('./Day11/solution');
+
 
     break;
   }

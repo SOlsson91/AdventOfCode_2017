@@ -5,7 +5,7 @@ Day 3 - Spiral Memory (Javascript)<br />
 Day 4 - High-Entropy Passphrases (Javascript)<br />
 Day 5 - A Maze of Twisty Trampolines, All Alike (Javascript)<br />
 Day 6 - Memory Reallocation (Javascript)<br />
-Day 7 - <br />
+Day 7 - Recursive Circus (Javascript)<br />
 Day 8 - I Heard You Like Registers (Javascript)<br />
 Day 9 - Stream Processing (Javascript)<br />
 Day 10 - Knot Hash (Javascript)<br />

@@ -36,5 +36,11 @@ module.exports = {
       if(arr1[i] !== arr2[i]){ return false;}
     }
     return true;
+  },
+  ArrayDiff: function(a1,a2){
+    let result = [];
+    result.push(a1[0]-a2[0]);
+    result.push(a1[1]-a2[1]);
+    return result;
   }
 }

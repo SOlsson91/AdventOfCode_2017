@@ -1,3 +1,5 @@
+const helper = require('../utils/helper');
+
 module.exports = {
   calculateStepsToNumber: function(input){
     let spiral = createSpiralArray(input);
@@ -113,14 +115,7 @@ function calculateStepsFromMiddle(spiral, input){
       }
     }
   }
-  return ArrayDiff(numLocation,middle);
-}
-
-function ArrayDiff(a1,a2){
-  let result = [];
-  result.push(a1[0]-a2[0]);
-  result.push(a1[1]-a2[1]);
-  return result;
+  return helper.ArrayDiff(numLocation,middle);
 }
 
 function getValuesSquare(spiral, input){
