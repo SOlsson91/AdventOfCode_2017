@@ -84,6 +84,8 @@ switch(day){
   }
   case 12:{
     const day12 = require("./Day12/solution");
+    const input = helper.fileToSimpleString("./Day12/test.txt");
+    
     break;
   }
   case 13:{
