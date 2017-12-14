@@ -9,7 +9,7 @@ Day 7 - Recursive Circus (Javascript)<br />
 Day 8 - I Heard You Like Registers (Javascript)<br />
 Day 9 - Stream Processing (Javascript)<br />
 Day 10 - Knot Hash (Javascript)<br />
-Day 11 - <br />
+Day 11 - Hex Ed (Javascript)<br />
 Day 12 - <br />
 Day 13 - <br />
 Day 14 - <br />

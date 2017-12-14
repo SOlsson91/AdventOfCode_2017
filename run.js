@@ -76,8 +76,8 @@ switch(day){
   }
   case 11:{
     const day11 = require('./Day11/solution');
-
-
+    const input = helper.fileToSimpleString("./Day11/input.txt");
+    console.log(day11.hexPath(input));
     break;
   }
   case 12:{
