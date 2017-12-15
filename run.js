@@ -85,7 +85,7 @@ switch(day){
   case 12:{
     const day12 = require("./Day12/solution");
     const input = helper.fileToSimpleString("./Day12/test.txt");
-    
+    console.log(day12.travellingSalesman(input));
     break;
   }
   case 13:{
