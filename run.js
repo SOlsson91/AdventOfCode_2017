@@ -89,42 +89,55 @@ switch(day){
     break;
   }
   case 13:{
+    const day13 = require("./Day13/solution");
     break;
   }
   case 14:{
+    const day14 = require("./Day14/solution");
     break;
   }
   case 15:{
+    const day15 = require("./Day15/solution");
     break;
   }
   case 16:{
+    const day16 = require("./Day16/solution");
     break;
   }
   case 17:{
+    const day17 = require("./Day17/solution");
     break;
   }
   case 18:{
+    const day18 = require("./Day18/solution");
     break;
   }
   case 19:{
+    const day19 = require("./Day19/solution");
     break;
   }
   case 20:{
+    const day20 = require("./Day20/solution");
     break;
   }
   case 21:{
+    const day21 = require("./Day21/solution");
     break;
   }
   case 22:{
+    const day22 = require("./Day22/solution");
     break;
   }
   case 23:{
+    const day23 = require("./Day23/solution");
     break;
   }
   case 24:{
+    const day24 = require("./Day24/solution");
     break;
   }
   case 25:{
+    const day25 = require("./Day25/solution");
     break;
   }
 }
