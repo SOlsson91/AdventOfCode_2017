@@ -11,7 +11,7 @@ Day 9 - Stream Processing (Javascript)<br />
 Day 10 - Knot Hash (Javascript)<br />
 Day 11 - Hex Ed (Javascript)<br />
 Day 12 - Digital Plumber (Javascript)<br />
-Day 13 - <br />
+Day 13 - Packet Scanners (Javascript)<br />
 Day 14 - <br />
 Day 15 - <br />
 Day 16 - <br />
@@ -23,4 +23,4 @@ Day 21 - <br />
 Day 22 - <br />
 Day 23 - <br />
 Day 24 - <br />
-Day 25 - 
+Day 25 -
