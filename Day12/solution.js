@@ -16,9 +16,21 @@ module.exports = {
       values.push(v);
     });
     let group = Array();
-    group.push(Number(values[0].house));
-    let house = getHouse(values, group[0]);
-    return lookupChildren(values, house, group).length;
+    while(values.length > 0){
+      let g = Array();
+      g.push(Number(values[0].house));
+      let house = getHouse(values, g[g.length - 1]);
+      group.push(lookupChildren(values, house, g));
+
+      let updatedValues = [];
+      for(let i = 0; i < values.length; ++i){
+        if(!g.includes(values[i].house)){
+          updatedValues.push(values[i]);
+        }
+      }
+      values = updatedValues;
+    }
+    return group;
   }
 }
 
@@ -30,8 +42,6 @@ function lookupChildren(values, house, g){
     if(!g.includes(h.house)){
       g.push(h.house);
       let group = lookupChildren(values, h, g);
-      //console.log(g);
-      //g = g.concat(group);
     }
   }
   return g;
@@ -43,11 +53,4 @@ function getHouse(values, house){
       return values[i];
     }
   }
-}
-
-Array.prototype.contains = function ( needle ) {
- for (i in this) {
-     if (this[i] == needle) return true;
- }
- return false;
 }
