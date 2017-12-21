@@ -1,55 +1,22 @@
 module.exports = {
-  packScanner: function(input, useDelay){
-    let val = [];
-    input.split("\n").map(x => {
-      let objects = x.split(": ");
-      let v = {
-        index: Number(objects[0]),
-        val: objects[1],
-        pos: 1,
-        forward: true
-      };
-      val.push(v);
-    });
-
-    let delay = 0;
-    let caught = Array();
-    if(useDelay){
-      while(useDelay){
-        console.log("(delay)", delay);
-        console.log(val);
-        caught = runPackage(val);
-        console.log("Caught:", caught);
-
-        if(delay == 16){ break;}
-        if(caught.length == 0){ useDelay = false;}
-        delay++;
+  packScanner: function(input){
+    let caught = 0;
+    var input = input.split(/\n/).map(line => {
+      let [depth, range] = line.split(/: /).map(n => +n)
+      if(depth % ((range - 1) * 2) == 0){
+        caught += depth * range
       }
-    } else {
-      caught = runPackage(val);
-    }
-    return caught.reduce(function(a, b){ return a+b; });
-  }
-}
-
-function runPackage(val){
-  let index = 0;
-  let caught = [];
-  for(let i = 0; i <= val[val.length - 1].index; ++i){
-    let active = false;
-    val.forEach(function(value){
-      if(value.forward){ value.pos++; }
-      else { value.pos--; }
-
-      if(i == value.index){ active = true; }
-      if(value.pos >= value.val){ value.forward = false; }
-      if(value.pos <= 1){ value.forward = true; }
+      return [depth, range];
     });
 
-    if(val[index].pos == 1){
-      caught.push(val[index].index * val[index].val);
+    SEARCH: for(var firstNotCaught = 0; ; firstNotCaught++) {
+      for(let [depth, range] of input)
+        if((depth + firstNotCaught) % ((range - 1) * 2) == 0){
+          continue SEARCH
+        }
+      break;
     }
-    if(active){ index++; }
+    console.log('Part1:', caught)
+    console.log('Part2:', firstNotCaught)
   }
-  return caught;
 }

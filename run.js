@@ -90,8 +90,8 @@ switch(day){
   }
   case 13:{
     const day13 = require("./Day13/solution");
-    const input = helper.fileToSimpleString('./Day13/test.txt');
-    console.log(day13.packScanner(input, true));
+    const input = helper.fileToSimpleString('./Day13/input.txt');
+    day13.packScanner(input);
     break;
   }
   case 14:{
