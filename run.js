@@ -1,5 +1,5 @@
 const helper = require('./utils/helper');
-let day = 13;
+let day = 14;
 
 switch(day){
   case 1:{
@@ -96,6 +96,8 @@ switch(day){
   }
   case 14:{
     const day14 = require("./Day14/solution");
+    const input = "ugkiagan";
+    day14.defragmentation(input);
     break;
   }
   case 15:{
